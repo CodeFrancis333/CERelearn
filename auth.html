@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/font-awesome.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>Sign In / Sign Up</title>
+</head>
+<body class="auth-bg custom-body">
+  <!-- General Navbar (Before Login) -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top custom-navbar">
+    <div class="container custom-container">
+      <a class="navbar-brand text-primary px-4 fw-bold custom-brand" href="index.html">
+        <!-- <img src="images/logo.svg" alt="" width="100"> --> 
+        CERelearn
+      </a>
+      <button 
+          class="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto custom-nav">
+          <li class="nav-item custom-nav-item">
+            <a class="nav-link mx-2 custom-nav-link" href="study.html" aria-current="page">Study Materials</a>
+          </li>
+          <li class="nav-item custom-nav-item">
+            <a class="nav-link mx-2 custom-nav-link" href="forum.html" aria-current="page">Community Forum</a>
+          </li>
+          <li class="nav-item custom-nav-item">
+            <a class="nav-link mx-2 custom-nav-link" href="pricing.html" aria-current="page">Premium</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav custom-nav">
+          <li class="nav-item custom-nav-item">
+            <a class="btn btn-light me-2 mb-2 custom-btn-signup" href="auth.html">Sign Up</a>
+          </li>
+          <li class="nav-item custom-nav-item">
+            <a class="btn btn-primary custom-btn-login" href="auth.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="auth-page custom-auth-page">
+    <div class="auth-container custom-auth-container">
+      <!-- Header to toggle forms -->
+      <div class="card-header custom-card-header">
+        <button id="btnSignIn" class="active custom-toggle-btn">Sign In</button>
+        <button id="btnSignUp" class="custom-toggle-btn">Sign Up</button>
+      </div>
+      <!-- Card that slides -->
+      <div id="formCard" class="form-card custom-form-card">
+        <!-- Sign In Form -->
+        <div class="form-wrapper custom-form-wrapper">
+          <h2 class="logo-text d-flex justify-content-center text-warning fw-bold custom-logo">CERelearn</h2>
+          <p class="text-center custom-text">Welcome Back! Sign in to continue your learning journey.</p>
+          <form>
+            <div class="mb-3 custom-form-group">
+              <input type="email" class="form-control custom-input" id="signinEmail" placeholder="Username or Email" required>
+            </div>
+            <div class="mb-3 custom-form-group">    
+              <input type="password" class="form-control custom-input" id="signinPassword" placeholder="Password" required>
+            </div>
+            <!-- "Remember me" and "Forgot password?" on one line -->
+            <div class="mb-3 d-flex justify-content-between align-items-center custom-form-options">
+              <div class="form-check custom-form-check">
+                <input type="checkbox" class="form-check-input custom-check" id="rememberMe">
+                <label class="form-check-label custom-check-label" for="rememberMe">Remember me</label>
+              </div>
+              <div class="forgot-password custom-forgot">
+                <a href="#" class="custom-forgot-link">Forgot password?</a>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-warning w-100 custom-submit-btn">Sign In</button>
+          </form>
+          <!-- Social Login Section for Sign In -->
+          <div class="social-login custom-social-login">
+            <p class="custom-social-text" style="color: rgba(0, 0, 0, 0.6);">Or login with</p>
+            <a href="#" class="social-icon custom-social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon custom-social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon custom-social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Sign Up Form -->
+        <div class="form-wrapper custom-form-wrapper">
+          <h2 class="logo-text d-flex justify-content-center text-warning fw-bold custom-logo">CERelearn</h2>
+          <p class="custom-text">Create an Account and Start Learning Today!</p>
+          <form>
+            <div class="mb-3 custom-form-group">
+              <input type="text" class="form-control custom-input" id="signupName" placeholder="Full Name" required>
+            </div>
+            <div class="mb-3 custom-form-group">
+              <input type="email" class="form-control custom-input" id="signupEmail" placeholder="Email" required>
+            </div>
+            <div class="mb-3 custom-form-group">
+              <input type="password" class="form-control custom-input" id="signupPassword" placeholder="Password" required>
+            </div>
+            <div class="mb-3 custom-form-group">
+              <input type="password" class="form-control custom-input" id="signupConfirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit" class="btn btn-warning w-100 mt-3 custom-submit-btn">Sign Up</button>
+          </form>
+          <!-- Social Sign Up Options -->
+          <div class="social-login custom-social-login">
+            <p class="custom-social-text" style="color: rgba(0, 0, 0, 0.6);">Or sign up with</p>
+            <a href="#" class="social-icon custom-social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon custom-social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon custom-social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark text-light py-5 custom-footer">
+    <div class="container custom-container">
+      <div class="row">
+        <div class="col-md-2 mb-4 mb-md-0 custom-footer-col">
+          <div>
+            <h5 class="fw-bold custom-footer-heading">Quick Navigation</h5>
+            <a href="#" class="footlink text-light custom-footlink">Study Materials</a>
+            <p></p>
+            <a href="#" class="footlink text-light custom-footlink">Personalized Study Plans</a>
+            <p></p>
+            <a href="#" class="footlink text-light custom-footlink">Simulated Exams</a>
+            <p></p>
+            <a href="#" class="footlink text-light custom-footlink">Community Forum</a>
+            <p></p>
+            <a href="#" class="footlink text-light custom-footlink">AI Chatbot</a>
+            <p></p>
+            <a href="pricing.html" class="footlink text-light custom-footlink">Upgrade to Premium</a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-4 mb-md-0 px-lg-4 custom-footer-col">
+          <div>
+            <h5 class="fw-bold custom-footer-heading">Join Us</h5>
+            <a href="auth.html" class="footlink text-light custom-footlink">Sign Up as a Student</a>
+            <p></p>
+            <a href="auth.html" class="footlink text-light custom-footlink">Apply as an Instructor</a>
+            <p></p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 mb-md-0 custom-footer-col">
+          <div>
+            <h5 class="fw-bold custom-footer-heading">Contact & Support</h5>
+            <a href="#" class="footlink text-light custom-footlink">About Us</a>
+            <hr>
+            <div>
+              <p class="text-light custom-footer-text">Email: CERelearnph@gmail.com</p>
+              <p class="text-light custom-footer-text">Phone: +639010101010</p>
+              <p class="text-light custom-footer-text">Location: 666 Valenzuela City</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 px-5 custom-footer-col">
+          <h4 class="fw-bold custom-footer-heading">Stay Updated</h4>
+          <p class="custom-footer-text">Get the latest study materials, expert tips, and platform updates straight to your inbox.</p>
+          <div class="d-flex justify-content-center align-items-center mb-3 custom-subscribe">
+            <input type="email" class="form-control form-control-md rounded-pill me-3 custom-input" id="subscribeEmail" placeholder="Enter Your Email">
+            <button class="btn btn-primary btn-md custom-subscribe-btn">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <hr class="border-light custom-hr">
+      <div class="row d-flex justify-content-between align-items-center text-center text-md-start">
+        <div class="col-md-4">
+          <p class="mb-0 custom-copy">&copy; 2025 CERelearn. All Rights Reserved.</p>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center">
+          <a href="#" class="text-light me-2 me-md-3 custom-footer-link">Terms and Conditions</a>
+          <p class="d-block d-md-none">|</p>
+          <a href="#" class="text-light mx-2 custom-footer-link">Privacy Policy</a>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center justify-content-md-end">
+          <a href="https://linkedin.com" class="custom-footer-icon"><i class="FooterLink fab fa-linkedin text-light mx-1"></i></a>
+          <a href="https://X.com" class="custom-footer-icon"><i class="FooterLink fab fa-twitter text-light mx-1"></i></a>
+          <a href="https://facebook.com" class="custom-footer-icon"><i class="FooterLink fab fa-facebook text-light mx-1"></i></a>
+          <a href="https://youtube.com" class="custom-footer-icon"><i class="FooterLink fab fa-youtube text-light mx-1"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

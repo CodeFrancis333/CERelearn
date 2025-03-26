@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Font Awesome (optional) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+
+  <title>CERelearn Dashboard (Compact)</title>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2c3e50;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">CERelearn</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Left Nav Links -->
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="study.html">Study Materials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="forum.html">Community Forum</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pricing.html">Premium</a>
+          </li>
+        </ul>
+
+        <!-- Right Nav Buttons -->
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://randomuser.me/api/portraits/men/99.jpg" alt="User Profile" class="rounded-circle me-2" width="32" height="32">
+              <span id="userName">John Doe</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+              <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-dark" href="auth.html">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END NAVBAR -->
+
+  <div class="container my-3">
+    <!-- <h2 class="mb-3"></h2> -->
+
+    <!-- ROW 1: Analytics, Daily Question (Dropdown), User Profile -->
+    <div class="row g-3">
+      <!-- Analytics -->
+      <div class="col-md-2">
+        <div class="card shadow-sm dashboard-card row1-card">
+          <div class="card-body">
+            <h5 class="card-title mb-2 text-md">
+              <i class="fa-solid fa-chart-bar me-2"></i> User Analytics
+            </h5>
+            <p class="mb-1 text-md"><strong>Progress:</strong> 75%</p>
+            <p class="mb-1 text-md"><strong>Contributions:</strong> 12</p>
+            <p class="mb-1 text-md"><strong>Total Views:</strong> 540</p>
+            <hr>
+            <div>
+              <h6 class="mt-3 text-md">
+                <span id="readinessDot" class="readiness-dot"></span>
+                Readiness Score
+              </h6>
+              <div class="progress readiness-progress">
+                <div id="readinessBar"
+                    class="progress-bar progress-high"
+                    role="progressbar"
+                    style="width: 75%;"
+                    aria-valuenow="75"
+                    aria-valuemin="0"
+                    aria-valuemax="100">
+                  75%
+                </div>
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- Daily Question as a Dropdown -->
+      <div class="col-md-2">
+        <div class="card shadow-sm dashboard-card row1-card">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center mb-2">
+              <i class="fa-solid fa-calendar-check me-2"></i> Today's Question
+            </h5>
+            <div class="dropdown calendar-dropdown">
+              <button
+                class="btn btn-sm dashboard-btn dropdown-toggle"
+                style="background-color: #a3b9a0;"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                View Question
+              </button>
+              <div class="dropdown-menu p-3">
+                <p class="fw-bold">Question of the Day:</p>
+                <p class="mb-2">
+                  What is the moment of inertia of a rectangular beam (b × h) about its centroid?
+                </p>
+                <button class="btn btn-outline-dark btn-sm btn-light">See Solution</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card dashboard-card row1-card" id="moodCard">
+          <div class="card-body">
+            <h5 class="card-title f">Mood Right Now</h5>
+            <p class="card-text">How are you feeling at this moment? Select your mood:</p>
+            <div class="btn-group" role="group" aria-label="Mood Selector">
+              <button type="button" class="btn mood-btn btn-outline-dark btn-sm" data-mood="Motivated">
+                😊 Motivated
+              </button>
+              <button type="button" class="btn mood-btn btn-outline-dark btn-sm" data-mood="Neutral">
+                😐 Neutral
+              </button>
+              <button type="button" class="btn mood-btn btn-outline-dark btn-sm" data-mood="Stressed">
+                😓 Stressed
+              </button>
+            </div>
+            <p class="mt-3">
+              Selected Mood: <span id="selectedMood">None</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Profile (Smaller) -->
+      <div class="col-md-4 justify-content-end">
+        <div class="card shadow-sm dashboard-card text-center row1-card">
+          <div class="card-body text-center">
+            <img
+              src="https://randomuser.me/api/portraits/men/99.jpg"
+              class="user-profile-img rounded-circle mb-2 "
+              alt="User Image"
+            />  
+            <h6 class="fw-semibold mb-1">John Doe</h6>
+            <p class="dashboard-user-role text-muted mb-1">Civil Engineering Student</p>
+            <p class="mb-1"><strong>School:</strong> XYZ University</p>
+            <p class="mb-1"><strong>Account:</strong> Free</p>
+            <div class="d-flex justify-content-center mt-2">
+              <a href="study_plans.html" class="btn btn-outline-dark btn-sm dashboard-btn me-2">
+                <i class="fa-solid fa-book-open me-1"></i> My Study Plans
+              </a>
+              <a href="library.html" class="btn btn-outline-warning btn-sm dashboard-btn">
+                <i class="fa-solid fa-book me-1"></i> My Library
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END ROW 1 -->
+
+    <div class="container my-3">
+      <div class="row mt-3">
+        <!-- Quick Links & AI Quizzer (SM: 1 row, LG: side-by-side) -->
+        <div class="col-lg-2 col-sm-6">
+          <div class="card shadow-sm dashboard-card quicklinks-card me-5">
+            <div class="card-body py-3">
+              <h6 class="card-title mb-3"><i class="fa-solid fa-layer-group me-2"></i> Quick Links</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <a href="study.html" class="text-decoration-none text-dark">
+                    <i class="fa-solid fa-book-open me-2 text-primary"></i> Study Materials
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a href="forum.html" class="text-decoration-none text-dark">
+                    <i class="fa-solid fa-comments me-2 text-primary"></i> Community Forum
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a href="past_exams.html" class="text-decoration-none text-dark">
+                    <i class="fa-solid fa-file-lines me-2 text-primary"></i> Past Exam Questions
+                  </a>
+                </li>
+                <li class="list-group-item">
+                  <a href="study_plans.html" class="text-decoration-none text-dark">
+                    <i class="fa-solid fa-bullseye me-2 text-primary"></i> Study Plans
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-lg-2 col-sm-6">
+          <div class="card shadow-sm dashboard-card practice-card">
+            <div class="card-body">
+              <h6 class="card-title mb-3"><i class="fa-solid fa-brain me-2"></i> Practice With Our AI Quizzer</h6>
+              <p class="card-text">Test your understanding and generalization.</p>
+              <a href="practice.html" class="btn btn-outline-dark btn-sm" >Practice</a>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Performance Snapshot (Below Quicklinks & AI Quizzer in SM) -->
+        <div class="col-lg-3 col-sm-12">
+          <div class="card user-metrics-card mb-sm-3 mb-3 mb-md-0">
+            <div class="card-header text-center text-light" style="background-color: #2c3e50;">
+              Performance Snapshot
+            </div>
+            <div class="card-body">
+              <div class="row text-center mb-2">
+                <div class="col-6">
+                  <small>Avg Accuracy</small>
+                  <div class="h5">87%</div>
+                </div>
+                <div class="col-6">
+                  <small>Total Qs</small>
+                  <div class="h5">120</div>
+                </div>
+              </div>  
+              <div class="row text-center">
+                <div class="col-6">
+                  <small>Study Time</small>
+                  <div class="h5">2h 30m</div>
+                </div>
+                <div class="col-6">
+                  <small>Coverage</small>
+                  <div class="h5">60%</div>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+    
+        <!-- Strengths & Weaknesses (Below Performance Snapshot in SM) -->
+        <div class="col-lg-3 col-sm-12">
+          <div class="card user-metrics-card mb-sm-3 mb-3 mb-md-0">
+            <div class="card-header text-center text-light" style="background-color: #2c3e50;">
+              Strengths & Weaknesses
+            </div>
+            <div class="card-body p-0" style="height: calc(100% - 100px);">
+              <canvas id="radarChart" style="width:100%; height:100%;"></canvas>
+            </div>
+            <a href="#" class="card-footer text-center btn btn-light btn-sm text-dark btn-outline-light" style="margin: 0; display: block; background-color: #7ac2a0;">
+              View more Charts
+            </a>
+          </div>
+        </div>
+    
+        <!-- Quote of the Day (Last Row in SM) -->
+        <div class="col-lg-2 col-sm-12">
+          <div class="card qoute-card" style="height:230px;">
+            <div class="card-header text-center bg-danger">  
+              Quote of the Day
+            </div>
+            <div class="card-body text-center">
+              <blockquote class="blockquote mb-0 autofit-text">
+                <p>"Engineers turn dreams into reality. Stay focused and build your future!"</p>
+                <footer class="blockquote-footer">Anonymous</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ROW 3: Practice Questions Section -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card shadow-sm dashboard-card">
+          <div class="card-body">
+            <!-- Dropdowns & Search Row -->
+            <div class="d-flex flex-column flex-lg-row align-items-center gap-2 mb-3">
+              <!-- Group 1: Dropdowns -->
+              <div class="d-flex gap-2">
+                <!-- Topics Dropdown -->
+                <div class="dropdown">
+                  <b utton
+                    class="btn btn-danger dropdown-toggle btn-sm dropdown-btn"
+                    type="button"
+                    id="dropdownTopics"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Topics
+                  </b>
+                  <div class="dropdown-menu p-3" aria-labelledby="dropdownTopics">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm dashboard-input mb-2"
+                      placeholder="Search Topics"
+                      id="Topicsearch"
+                    />
+                    <div class="d-grid gap-2" id="TopicsList">
+                      <p class="text-center fw-bold">MSTE</p>
+                      <button class="btn btn-light btn-sm ContentBtn" type="button">Calculus</button>
+                      <button class="btn btn-light btn-sm ContentBtn" type="button">Differential Equations</button>
+                      <button class="btn btn-light btn-sm ContentBtn" type="button">Engineering Data Analysis</button>
+                      <hr />
+                      <p class="text-center fw-bold">HGE</p>
+                      <button class="btn btn-light btn-sm ContentBtn" type="button">Fluid Mechanics</button>
+                      <button class="btn btn-light btn-sm ContentBtn" type="button">Buoyancy &amp; Flotation</button>
+                      <hr />
+                      <p class="text-center fw-bold">SEC</p>
+                      <button class="btn btn-light btn-sm ContentBtn" type="button">Engineering Mechanics</button>
+                      <button class="btn btn-light btn-sm ContentBtn" type="button">Reinforced Concrete Design</button>
+                    </div>
+                    <button class="btn btn-link btn-sm ContentBtn mt-2" type="button" id="expandTopics">
+                      Expand
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Sort by Difficulty Dropdown -->
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    class="btn dropdown-toggle btn-sm dropdown-btn btn-danger"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Sort by Difficulty
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Easy</a></li>
+                    <li><a class="dropdown-item" href="#">Medium</a></li>
+                    <li><a class="dropdown-item" href="#">Hard</a></li>
+                  </ul>
+                </div>
+
+                <!-- Course Codes Dropdown -->
+                <div class="dropdown">
+                  <button
+                    class="btn btn-danger dropdown-toggle btn-sm dropdown-btn"
+                    type="button"
+                    id="dropdownCourseCodes"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Course Codes
+                  </button>
+                  <div class="dropdown-menu p-3" aria-labelledby="dropdownCourseCodes">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm dashboard-input mb-2"
+                      placeholder="Search Course Codes"
+                      id="courseCodeSearch"
+                    />
+                    <div class="d-flex flex-wrap gap-2" id="courseCodeList">
+                      <button class="btn btn-light btn-sm DropdownBtn" type="button">CE01</button>
+                      <button class="btn btn-light btn-sm DropdownBtn" type="button">CE02</button>
+                      <button class="btn btn-light btn-sm DropdownBtn" type="button">CE03</button>
+                      <button class="btn btn-light btn-sm DropdownBtn" type="button">CE04</button>
+                      <button class="btn btn-light btn-sm DropdownBtn" type="button">CE05</button>
+                    </div>
+                    <button class="btn btn-link btn-sm DropdownBtn mt-2" type="button" id="expandCourseCodes">
+                      Expand
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Group 2: Search Questions Input -->
+              <div class="w-100 w-lg-auto d-flex justify-content-center justify-content-lg-start">
+                <input
+                  class="form-control form-control-sm dashboard-input square-input"
+                  list="datalistOptions"
+                  id="exampleDataList"
+                  placeholder="Type to search questions"
+                />
+                <datalist id="datalistOptions">
+                  <option value="Most Viewed">
+                </datalist>
+              </div>
+
+              <!-- Group 3: Button Group -->
+              <div class="d-flex gap-2">
+                <button class="btn btn-sm table-btn btn-info">
+                  <i class="fa-solid fa-book me-1"></i> All Topics
+                </button>
+                <button class="btn btn-sm table-btn btn-info">
+                  <i class="fa-solid fa-sort me-1"></i> MSTE
+                </button>
+                <button class="btn btn-sm table-btn btn-info">
+                  <i class="fa-solid fa-sort me-1"></i> HGE
+                </button>
+                <button class="btn btn-sm table-btn btn-info">
+                  <i class="fa-solid fa-sort me-1"></i> SEC
+                </button>
+              </div>
+            </div>
+
+            <!-- Table of Questions -->
+            <div class="table-responsive">
+              <table class="table dashboard-table table-bordered table-hover table-striped table-sm align-middle">
+                <thead class="table-light">
+                    <tr>
+                      <th class="text-center">ID</th>
+                      <th class="text-center">Course Code</th>
+                      <th class="text-center">Question Title</th>
+                      <th class="text-center">Difficulty</th>
+                      <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">001</td>
+                    <td class="text-center">CE01</td>
+                    <td class="text-center">What is Mohr's Circle?</td>
+                    <td class="difficulty-medium text-center">Medium</td>
+                    <td class="text-center">
+                      <a href="#" class="me-1">
+                        <i class="fas fa-search"></i>
+                      </a>
+                      <a href="#" class="me-1">
+                        <i class="fas fa-thumbtack"></i>
+                      </a>
+                      <a href="#">
+                        <i class="fas fa-plus"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">002</td>
+                    <td class="text-center">CE02</td>
+                    <td class="text-center">Calculate the shear force on a beam.</td>
+                    <td class="difficulty-hard text-center">Hard</td>
+                    <td class="text-center">
+                      <a href="#" class="me-1">
+                        <i class="fas fa-search"></i>
+                      </a>
+                      <a href="#" class="me-1">
+                        <i class="fas fa-thumbtack"></i>
+                      </a>
+                      <a href="#">
+                        <i class="fas fa-plus"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">003</td>
+                    <td class="text-center">CE02</td>
+                    <td class="text-center">Calculate the reaction force on a simply supported beam.</td>
+                    <td class="difficulty-easy text-center">Easy</td>
+                    <td class="text-center">
+                      <a href="#" class="me-1">
+                        <i class="fas fa-search"></i>
+                      </a>
+                      <a href="#" class="me-1">
+                        <i class="fas fa-thumbtack"></i>
+                      </a>
+                      <a href="#">
+                        <i class="fas fa-plus"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <nav>
+              <ul class="pagination justify-content-center mt-2 mb-0 pagination-sm bottom-pag">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END ROW 3 -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark text-light py-5 mt-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 mb-4 mb-md-0">
+                <div>
+                    <h5 class="fw-bold">Quick Navigation</h5>
+                    <a href="#" class="footlink text-light">Study Materials</a>
+                    <p></p>
+                    <a href="#" class="footlink text-light">Personalized Study Plans</a>
+                    <p></p>
+                    <a href="#" class="footlink text-light">Simulated Exams</a>
+                    <p></p>
+                    <a href="#" class="footlink text-light">Community Forum</a>
+                    <p></p>
+                    <a href="#" class="footlink text-light">AI Chatbot</a>
+                    <p></p>
+                    <a href="pricing.html" class="footlink text-light">Upgrade to Premium</a>
+                </div>
+            </div>
+            <div class="col-md-2 mb-4 mb-md-0 px-lg-4">
+                <div>
+                    <h5 class="fw-bold">Join Us</h5>
+                    <a href="auth.html" class="footlink text-light">Sign Up as a Student</a>
+                    <p></p>
+                    <a href="auth.html" class="footlink text-light">Apply as an Instructor</a>
+                    <p></p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4 mb-md-0">
+                <div>
+                    <h5 class="fw-bold">Contact & Support</h5>
+                    <a href="#aboutus" class="footlink text-light">About Us</a>
+                    <hr>
+                    <div>
+                        <p class="text-light">Email:CERelearnph@gmail.com</p>
+                        <p class="text-light">Phone:+639010101010</p>
+                        <p class="text-light">Location:666 Valenzuela City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 px-5">
+                <h4 class="fw-bold">Stay Updated</h4>
+                <p class="">Get the latest study materials, expert tips, and platform updates straight to your inbox.</p>
+                <div class="d-flex justify-content-center align-items-center mb-3">
+                    <input type="email" class="form-control form-control-md rounded-pill me-3" id="exampleFormControlInput1" placeholder="Enter Your Email">
+                    <button class="btn btn-primary btn-md">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <hr class="border-light">
+        <div class="row d-flex justify-content-between align-items-center text-center text-md-start">
+            <div class="col-md-4">
+                <p class="mb-0">&copy; 2025 CERelearn. All Rights Reserved.</p>
+                
+            </div>
+            <div class="col-md-4 d-flex justify-content-center ">
+                <a href="" class="text-light me-2 me-md-3">Terms and Conditions</a>
+                <p class="d-block d-md-none">|</p>
+                <a href="" class="text-light mx-2">Privacy Policy</a>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center justify-content-md-end">
+                <a href="https://linkedin.com"><i class="FooterLink fab fa-linkedin text-light mx-1"></i></a>
+                <a href="https://X.com"><i class="FooterLink fab fa-twitter text-light mx-1"></i></a>
+                <a href="https://facebook.com"><i class="FooterLink fab fa-facebook text-light mx-1"></i></a>
+                <a href="https://youtube.com"><i class="FooterLink fab fa-youtube text-light mx-1"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

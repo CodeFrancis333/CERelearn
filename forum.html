@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community Forum</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Your compiled CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="forum-page">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand text-primary px-4 fw-bold" href="#">
+        CERelearn
+      </a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="#">Study Materials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="#" onclick="showSection('home')">Community Forum</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="#">Premium</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="btn btn-light me-2 mb-2" href="#">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="#">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- LEFT SIDEBAR WRAPPER -->
+  <div class="sidebar-wrapper">
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar-left">
+      <nav class="nav flex-column">
+        <a class="nav-link active" href="#" onclick="showSection('home')">Home</a>
+        <a class="nav-link" href="#" onclick="showSection('categories')">Categories</a>
+        <a class="nav-link" href="#" onclick="showSection('questions')">Questions</a>
+        <a class="nav-link" href="#" onclick="showSection('discussions')">Discussions</a>
+        <a class="nav-link" href="#" onclick="showSection('users')">Users</a>
+      </nav>
+    </div>
+    <!-- Toggle Button for Small Screens -->
+    <button id="sidebarToggle">&gt;</button>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content-container">
+    <!-- Global Search Bar -->
+    <div id="global-search-bar">
+      <form class="d-flex justify-content-center border-0 w-100 mx-auto p-5">
+        <input class="form-control form-control-sm me-2" id="searchbox" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+
+    <!-- HOME SECTION -->
+    <section id="home-section" class="section-content">
+      <h1 class="fw-bold text-start display-4">
+        <span class="text-primary">Engage</span>, <i>Learn</i>, and <i>Grow</i>
+      </h1>
+      <p class="lead">
+        Our forum is designed to help you succeed. Ask questions, share your knowledge,<br>
+        and connect with fellow civil engineering students. Maximize your learning<br>
+        experience by actively participating in our community.
+      </p>
+
+      <div class="row text-start">
+        <div class="col-md-3 col-sm-6">
+          <h4 class="counter fw-bold fs-3" data-target="100">0%</h4>
+          <p>Of questions answered daily.</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <h4 class="counter fw-bold fs-3" data-target="95">0%</h4>
+          <p>Of users find helpful answers.</p>
+        </div>
+      </div>
+
+      <!-- "Ask a Question" Button -->
+      <div class="d-flex justify-content-end my-3">
+        <button class="btn btn-light text-primary border-primary">Ask a Question</button>
+      </div>
+
+      <!-- Latest Questions List -->
+      <h3>Latest Questions</h3>
+      <div class="list-group">
+        <!-- Example Question 1 -->
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">How do I calculate the bending moment in a continuous beam?</h5>
+            <small>Posted on 2025-02-20 14:35</small>
+          </div>
+          <p class="mb-1">
+            Looking for guidance on the step-by-step method for determining the bending moments in continuous beams...
+          </p>
+          <small>Replies: 5 | Votes: 12 | Views: 150</small>
+        </a>
+        
+        <!-- Example Question 2 -->
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">What are the latest trends in sustainable concrete?</h5>
+            <small>Posted on 2025-02-19 09:15</small>
+          </div>
+          <p class="mb-1">
+            I am interested in learning about eco-friendly materials and the integration of sustainable practices in concrete mix designs...
+          </p>
+          <small>Replies: 3 | Votes: 8 | Views: 120</small>
+        </a>
+      </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section id="categories-section" class="section-content d-none">
+      <h3>Forum Categories</h3>
+      <ul class="list-group">
+        <li class="list-group-item">General Mathematics</li>
+        <li class="list-group-item">Physics</li>
+        <li class="list-group-item">Structural Engineering</li>
+        <li class="list-group-item">Geotechnical Engineering</li>
+        <li class="list-group-item">Transportation Engineering</li>
+      </ul>
+    </section>
+
+    <!-- QUESTIONS SECTION -->
+    <section id="questions-section" class="section-content d-none">
+      <h3>Questions</h3>
+      <!-- Categories Filter -->
+      <div class="mb-3">
+        <h5>Filter by Category:</h5>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-outline-secondary">Structural</button>
+          <button type="button" class="btn btn-outline-secondary">Geotech</button>
+          <button type="button" class="btn btn-outline-secondary">Transportation</button>
+        </div>
+      </div>
+      <!-- Sorting Buttons -->
+      <div class="btn-group mb-3" role="group">
+        <button type="button" class="btn btn-outline-primary">Latest</button>
+        <button type="button" class="btn btn-outline-primary">Most Voted</button>
+        <button type="button" class="btn btn-outline-primary">Most Viewed</button>
+        <button type="button" class="btn btn-outline-primary">Most Replies</button>
+      </div>
+      <!-- Search and Post -->
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search questions..." />
+        <button class="btn btn-primary" type="button">Post Question</button>
+      </div>
+      <p>More questions content here...</p>
+    </section>
+
+    <!-- DISCUSSIONS SECTION -->
+    <section id="discussions-section" class="section-content d-none">
+      <h3>Discussions</h3>
+      <p>Join a time-bound discussion and make new friends!</p>
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">Discussion 1...</a>
+        <a href="#" class="list-group-item list-group-item-action">Discussion 2...</a>
+      </div>
+    </section>
+
+    <!-- USERS SECTION -->
+    <section id="users-section" class="section-content d-none">
+      <h3>Users</h3>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search users..." />
+        <button class="btn btn-primary" type="button">Search</button>
+      </div>
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+          <img src="https://via.placeholder.com/50" alt="John Doe" class="profile-img" />
+          <div>
+            <strong>John Doe</strong><br>
+            Posted: 10 questions | Voted: 25 times
+          </div>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+          <img src="https://via.placeholder.com/50" alt="Jane Smith" class="profile-img" />
+          <div>
+            <strong>Jane Smith</strong><br>
+            Posted: 15 questions | Voted: 30 times
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <div class="sidebar-right">
+    <div class="p-3">
+      <h6>Advertisements</h6>
+      <p>Your ad here</p>
+      <!-- Additional ad content -->
+    </div>
+  </div>
+
+  <!-- BOOTSTRAP JS + YOUR SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

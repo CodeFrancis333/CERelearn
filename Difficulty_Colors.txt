@@ -1,0 +1,3 @@
+Red: #ff6961
+Yellow:#F8d66d
+Green:#8cd47e

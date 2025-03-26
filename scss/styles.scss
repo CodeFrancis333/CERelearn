@@ -1,0 +1,1723 @@
+/***********************************************
+ * 1) GLOBAL / BOOTSTRAP
+***********************************************/
+@import 'bootstrap';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/***********************************************
+ * 2) NAVBAR + BUTTON HOVER EFFECTS
+***********************************************/
+.navbar {
+  transition: all 0.5s ease-in-out;
+
+  &.navbar-sticky {
+    opacity: 0.8;
+  }
+}
+
+.nav-item .mx-2 {
+  &:hover {
+    background-color: #5A5E32;
+    border-radius: 5%;
+    color: #fff;
+    transform: translateY(3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn.btn-light.me-2.mb-2 {
+  &:hover {
+    border-color: #5A5E32;
+    color: #5A5E32;
+  }
+}
+
+.btn.btn-primary {
+  &:hover {
+    border-color: #fff;
+  }
+}
+
+.AbtBtn {
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #5A5E32;
+    color: #fff;
+  }
+}
+
+.btn.btn-light.btn-lg.cta-btn {
+  &:hover {
+    background-color: #3A1F07;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn.btn-dark.bg-light.text-dark {
+  &:hover {
+    background-color: #3A1F07 !important;
+    color: #fff !important;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/***********************************************
+ * 3) HERO / COVER / CARD ANIMATIONS
+***********************************************/
+.hero {
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  animation: slideInDown 0.8s ease-out forwards;
+}
+
+@keyframes slideInDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  background-color: #631414;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease-out;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  &::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+  }
+  &::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+  }
+}
+
+.IndexCard {
+  width: 18rem;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.TestiCard {
+  width: 18rem;
+  height:auto;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.TestiImg1 {
+  max-width: 120px; 
+  height: auto; 
+  display: block; 
+  margin: 10px auto; 
+  object-fit: contain; 
+}
+
+/* Style for profile picture */
+.TestiImg2 {
+  width: 80px; 
+  height: 80px; 
+  object-fit: cover; 
+}
+
+.features-section,
+.mission-section {
+  padding: 60px 20px;
+}
+
+.mission-transition,
+.explore-transition {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/***********************************************
+ * 4) CHALLENGE CARDS (FLIP)
+***********************************************/
+.challenge-card {
+  perspective: 800px;
+
+  .challenge-inner {
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  &:hover .challenge-inner {
+    transform: rotateY(180deg);
+  }
+  .challenge-front,
+  .challenge-back {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .challenge-front {
+    background-color: var(--primary);
+    color: white;
+  }
+  .challenge-back {
+    background-color: var(--secondary);
+    color: white;
+    transform: rotateY(180deg);
+  }
+}
+
+/***********************************************
+ * 5) FEATURE CARD ANIMATION
+***********************************************/
+.feature-card {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+
+  &.animate {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/***********************************************
+ * DASHBOARD PAGE STYLING
+***********************************************/
+body.dashboard-page {
+  background-color: #f8f9fa;
+  font-size: 0.9rem;
+}
+
+.dashboard-card {
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-card.row1-card {
+  height:250px;
+}
+
+.quicklinks-card {
+  width:200px;
+  height: 230px;
+}
+
+.practice-card {
+  width:200px;
+  height: 230px;
+}
+
+.user-metrics-card {
+  height: 230px;
+}
+
+
+.full-width-card {
+  width: 100%;
+}
+
+/* Quick Links (Row 2) */
+.list-group-item {
+  font-size: 0.875rem;
+  border: none;
+  padding: 0.5rem 0.25rem;
+}
+
+/* Practice Table & Buttons */
+.dashboard-card .card-body {
+  padding: 1rem;
+}
+
+.table-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Custom Dashboard Table Styles */
+.dashboard-table {
+  // background-color: #fff;
+  width: 100%;
+}
+
+/* Optionally, if you need buttons within the dashboard table to span full width: */
+.dashboard-table .btn {
+  width: 100%;
+}
+
+.dashboard-table thead th {
+  background-color: #7ac2a0; //#51856d
+  color: #feffdc;               
+  border: 2px solid #7ac2a0;
+}
+
+.dashboard-table tbody td {
+  background-color: #709e9e; //#709e9e; 
+  color: #333;      
+  border: 2px solid #709e9e;    
+}
+
+/* Base styling for page links */
+.bottom-pag .page-item .page-link {
+  color: #333; /* Primary blue color */
+  background-color: #fff;
+  border: 1px solid #9f7151; //#775931
+  border-radius: 0.25rem;
+  margin: 0 3px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* Active page styling */
+.bottom-pag .page-item.active .page-link {
+  z-index: 1;
+  color: #feffdc;
+  background-color: #9f7151;
+  border-color: #9f7151;
+}
+
+/* Hover effects for page links */
+.bottom-pag .page-item .page-link:hover {
+  color: #fff;
+  background-color: #9f7151;
+  border-color: #9f7151;
+}
+
+/***********************************************
+ * CALENDAR STYLING
+***********************************************/
+.calendar {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.calendar table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td {
+  padding: 5px;
+  text-align: center;
+  border: none;
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.calendar th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.calendar td {
+  background-color: transparent;
+}
+
+.calendar .question-day {
+  cursor: pointer;
+  background-color: #e9ecef;
+}
+
+.calendar .question-day:hover {
+  background-color: #d4edda;
+}
+
+.calendar-dropdown .dropdown-menu {
+  min-width: 300px;
+}
+
+.mood-btn {
+  font-size: 1rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  border-color: #7ac2a0;
+}
+
+/***********************************************
+ * PROFILE IMAGE STYLING
+***********************************************/
+.user-profile-img {
+  width: 60px;
+  height: 60px;
+}
+
+/***********************************************
+ * DASHBOARD BUTTON STYLING
+***********************************************/
+.dashboard-btn {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  border-color: #333;
+}
+
+.dropdown-btn {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  border-color: #333;
+  background-color: #a3b9a0;
+}
+
+.DropdownBtn {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  border-color: #333;
+}
+
+.table-btn {
+  font-size: 0.8rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  border-color: #333;
+  background-color:#7ac2a0;
+  color: #333
+}
+
+/***********************************************
+ * DASHBOARD SEARCH BAR STYLING
+***********************************************/
+.dashboard-input {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+/***********************************************
+ * NEW: USER ROLE TEXT STYLING
+***********************************************/
+.dashboard-user-role {
+  font-size: 0.8rem;
+}
+
+/***********************************************
+ * CONTACT US MODAL & OTHER PAGE STYLING
+ * (remaining styles unchanged)
+***********************************************/
+.modal-lg {
+  max-width: 90%;
+}
+
+.map iframe {
+  width: 100%;
+  height: 350px;
+}
+
+.forum-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sidebar-left {
+  width: 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+}
+
+.sidebar-left .nav-link {
+  color: #333;
+  font-weight: 500;
+}
+
+.sidebar-left .nav-link.active {
+  color: #7ac2a0;
+}
+
+#sidebarToggle {
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  width: 30px;
+  height: 30px;
+  background-color: #7ac2a0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.content-container {
+  margin-left: 250px;
+  padding: 20px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar-wrapper {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 250px;
+  z-index: 1050;
+}
+
+.sidebar-right {
+  width: 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  position: fixed;
+  top: 56px;
+  bottom: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+@media (min-width: 992px) {
+  #sidebarToggle {
+    display: none;
+  }
+  .content-container {
+    margin-right: 250px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar-left {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 56px);
+    background-color: #f8f9fa;
+    padding: 20px;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease, left 0.3s ease;
+    z-index: 1050;
+  }
+
+  @media (max-width: 991px) { /* Tablet Screens */
+    .dashboard-card .card-title,
+    .dashboard-card p,
+    .dashboard-card h6 {
+      font-size: 0.85rem; /* Reduce text size */
+    }
+    .readiness-progress .progress-bar {
+      font-size: 0.75rem; /* Smaller font inside progress bar */
+    }
+  }
+
+  .sidebar-left.open {
+    transform: translateX(0);
+  }
+
+  #sidebarToggle {
+    position: fixed;
+    top: 60px;
+    left: 10px;
+    z-index: 1100;
+    transition: left 0.3s ease;
+  }
+
+  .content-container {
+    margin-left: 0;
+  }
+
+  .sidebar-right {
+    position: static;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.readiness-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: grey; /* Default color */
+  margin-right: 8px;
+}
+
+.readiness-progress {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.autofit-text {
+  font-size: clamp(1rem, 2vw, 1rem);
+  line-height: 1.5;
+}
+
+// Progress Bars
+
+/* For progress values 67% and higher */
+.progress-bar.progress-high {
+  background-color: #8cd47e;
+}
+
+/* For progress values between 34% and 66% */
+.progress-bar.progress-medium {
+  background-color: #F8d66d;
+}
+
+/* For progress values between 0% and 33% */
+.progress-bar.progress-low {
+  background-color: #ff6961;
+}
+
+body.dashboard-page {
+  /* Fallback solid background */
+  background-color: #a1c3b1;
+  
+  /* A gentle gradient from off-white to a very light green tint */
+  background: linear-gradient(135deg, #c9e3d4 0%, #a1c3b1 100%);
+  
+}
+
+/***********************************************
+ Auth.html
+***********************************************/
+
+/* Background for the auth page */
+.auth-bg {
+  background: linear-gradient(135deg, #c9e3d4 0%, #a1c3b1 100%);
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Custom body if further styling is needed */
+.custom-body {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Centering the auth container */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* Adjust if needed */
+  padding: 40px 0;
+}
+
+
+/* Auth container styling */
+.auth-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px; /* Adjust if needed */
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* Navbar customizations */
+.custom-navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.custom-brand {
+  font-size: 1.5rem;
+}
+
+/* Custom navigation links */
+.custom-nav-link {
+  font-weight: 500;
+}
+
+/* Toggle buttons header */
+.card-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+
+.card-header button {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+
+.card-header button.active {
+  color: #ffc107;
+  border-bottom: 2px solid #ffc107;
+}
+
+/* Container for sliding forms */
+.form-card {
+  display: flex;
+  width: 200%;
+  transition: transform 0.6s ease;
+}
+
+
+/* When in sign-up mode, slide left */
+.form-card.sign-up-mode {
+  transform: translateX(-50%);
+}
+
+.form-wrapper {
+  flex: 1 0 50%;
+  box-sizing: border-box; /* Include padding in width */
+  padding: 20px; /* Adjust as needed */
+}
+
+
+/* Form input styling */
+.custom-input {
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+/* Social login styling */
+.social-login {
+  margin-top: 15px;
+  text-align: center;
+}
+
+
+.social-icon {
+  font-size: 1.5rem;
+  margin: 0 5px;
+  color: #444;
+  transition: color 0.3s;
+}
+
+
+.social-icon:hover {
+  color: #000;
+}
+
+/* Custom styling for footer elements */
+.custom-footer {
+  font-size: 0.9rem;
+}
+
+.custom-footer-heading {
+  margin-bottom: 10px;
+}
+
+.custom-footer-link,
+.custom-footlink {
+  text-decoration: none;
+}
+
+.custom-footer-icon i {
+  font-size: 1.2rem;
+}
+
+.custom-hr {
+  margin: 20px 0;
+}
+
+.custom-copy {
+  margin: 0;
+}
+
+/* Subscribe input and button */
+.custom-subscribe {
+  margin-top: 15px;
+}
+
+.custom-subscribe-btn {
+  border-radius: 50px;
+}
+
+/***********************************************
+ Inverted Tool Tip
+***********************************************/
+
+/* Tooltip styling */
+    .inverted-tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    /* Always visible tooltip */
+    .inverted-tooltip::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        background: #7ac2a0;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        white-space: nowrap;
+        font-size: 12px;
+        top: -30px; /* Adjust the position above the text */
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    /* Hide tooltip on hover */
+    .inverted-tooltip:hover::after {
+        opacity: 0;
+    }
+
+    /****************************************************************
+     * Pricing Page
+    ****************************************************************/
+
+    body.pricing-page {
+      background-color: var(--bs-danger);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Pricing Cards */
+    .pricing-card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .pricing-card .card-body {
+      padding: 2rem;
+    }
+    .pricing-card h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .pricing-card .price {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+    .pricing-card p.lead {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-card a.btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .pricing-card ul.list-group {
+      margin-top: 1rem;
+    }
+    .pricing-card ul.list-group li {
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+    }
+    .pricing-card ul.list-group li i {
+      margin-right: 0.5rem;
+      color: #7ac2a0;
+    }
+    .pricing-card ul.list-group p {
+      font-size: 0.95rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Free Plan Card Styling */
+    .pricing-card.free-plan {
+      background: linear-gradient(to right, #8a8d91, #495e74);
+      border: 2px solid var(--danger);
+    }
+    .pricing-card.free-plan h3,
+    .pricing-card.free-plan .price,
+    .pricing-card.free-plan p {
+      color: #333;
+    }
+    .pricing-card.free-plan a.btn {
+      background-color: transparent;
+      border: 2px solid #495e74;
+      color: #333;
+    }
+    .pricing-card.free-plan a.btn:hover {
+      background-color: #495e74;
+      color: #ffffff;
+    }
+
+    /* Premium Plan Card Styling */
+    .pricing-card.premium-plan {
+      background: linear-gradient(to right, #2f414b, #a58a58);
+      border: 2px solid #e67e22;
+    }
+    .pricing-card.premium-plan h3,
+    .pricing-card.premium-plan .price,
+    .pricing-card.premium-plan p {
+      color: #ffffff;
+    }
+    .pricing-card.premium-plan a.btn {
+      background-color: transparent;
+      border: 2px solid #e67e22;
+      color: #e67e22;
+    }
+    .pricing-card.premium-plan a.btn:hover {
+      background-color: #e67e22;
+      color: #37474F;
+    }
+    .pricing-card.premium-plan ul.list-group li i {
+      color: #e67e22;
+    }
+
+    .pricing-card.premium-plan .price-text { 
+      background: linear-gradient(to right, #ee750c 40%, #76a9f0 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* study.html */
+
+  body.study-page {
+      display: flex;
+      flex-direction: column;
+  }
+  .study-container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    background-color: var(--bs-danger); /* Ensure background covers the sidebar shadow */
+  }
+  .study-sidebar {
+    background-color: var(--bs-dark); /* Matching navbar */
+    width: 250px;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 70px; /* Adjust based on navbar height */
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5); /* Ensures consistent shadow */
+    z-index: 1000;
+    overflow-y: auto;
+    border-right: none; /* Prevents unwanted borders */
+  }
+  .study-main-content {
+      margin-left: 270px;
+      padding: 20px;
+      width: calc(100% - 270px);
+      display: none; /* Initially hide all sections */
+  }
+  .study-sidebar .nav-link {
+      color: gray;
+      cursor: pointer;
+  }
+  .study-sidebar .nav-link.active {
+      background-color: #2c3e50;
+      color: white;
+  }
+
+  // Study Materials : Video page
+
+/* Entire Videos Section */
+#videos {
+  background-color: var(--bs-danger);  /* Bootstrap 'danger' theme */
+  color: #fff;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+/* Custom Sidebar Styles */
+.custom-sidebar {
+  background-color: var(--bs-dark); /* Slightly darker than the main background */
+  padding: 1rem;
+  border-radius: 8px;
+  height: calc(100vh - 70px);  /* Adjusted height for better responsiveness */
+  overflow-y: auto;
+  position: sticky;
+  top: 70px; /* Adjusted for different navbar heights */
+  z-index: 0;
+}
+
+/* Sidebar List Items */
+.custom-sidebar ul {
+  padding: 0;
+}
+
+.custom-sidebar ul li {
+  background-color: #b71c1c; /* Deeper red */
+  color: #fff;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s;
+  cursor: pointer;
+}
+
+.custom-sidebar ul li:hover {
+  background-color: #bd2130;
+  transform: scale(1.05);
+}
+
+.custom-sidebar ul li i {
+  margin-right: 0.5rem;
+}
+
+/* Truncate Long Titles */
+.custom-title {
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Custom Video Content Styles */
+.custom-video-content {
+  background-color: var(--bs-dark);
+  padding: 1rem;
+  border-radius: 8px;
+  z-index: inherit;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .custom-sidebar {
+    height: auto;
+    position: static;
+  }
+
+  .custom-video-content {
+    padding: 1rem;
+  }
+}
+
+
+// Study Topics
+
+.topics-search .topics-search-input {
+  width: 33%;
+}
+
+@media (max-width: 767.98px) {
+  .topics-search .topics-search-input {
+    width: 75%;
+  }
+}
+
+.topics-btn {
+  height: 2rem;
+}
+
+.study-topics {
+  max-width: 45%;
+}
+
+.topics-card-img.card-img-top {
+  max-height: 200px;
+  width: calc(100% - 20px);
+  margin: 10px 0 10px 10px;         
+  border-radius: 10px;
+  display: block;    
+  object-fit: cover;
+}
+
+.topics-card.card.mb-3.shadow {
+  background-color:#fff;
+}
+
+/* Custom Carousel Controls */
+.custom-carousel-control {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+}
+.carousel-control-prev.custom-carousel-control {
+  left: 15px;
+}
+.carousel-control-next.custom-carousel-control {
+  right: 15px;
+}
+.custom-carousel-control:hover {
+  opacity: 1;
+}
+.custom-carousel-icon {
+  font-size: 24px;
+  color: #333;
+  line-height: 1;
+}
+
+/* Custom Carousel Controls for Study Plans */
+.custom-studyplan-carousel-control {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+}
+.custom-studyplan-carousel-control:hover {
+  opacity: 1;
+}
+.custom-studyplan-carousel-control.prev {
+  left: 15px;
+}
+.custom-studyplan-carousel-control.next {
+  right: 15px;
+}
+.custom-studyplan-carousel-icon {
+  font-size: 24px;
+  color: #333;
+  line-height: 1;
+}
+
+/* Study Plan Card Styles */
+.study-plan-card {
+  border: none;
+}
+.study-plan-img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.study-plan-card .card-body {
+  text-align: center;
+}
+.study-plan-card .card-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.study-plan-card .card-text {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+/* Custom Play Button: Enclosed by a Circle */
+.study-plan-play-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #343a40;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+}
+.study-plan-play-btn:hover {
+  background-color: #23272b;
+  color: #fff;
+}
+.progress {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.progress-bar {
+  background-color: #28a745;
+  border-radius: 5px;
+}
+
+/* Example Problems */
+/* Custom Card Styling */
+.custom-search-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 75%;
+}
+
+.hot-topic-card {
+  width: 75%;
+}
+
+@media (max-width: 576px) {
+  .custom-search-card {
+    width: 100%;
+  }
+  .hot-topic-card {
+    width: 100%;
+  }
+}
+
+/* Custom Search Button Styling */
+.custom-search-btn {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Active button state */
+.custom-search-btn.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Disabled button state */
+.custom-search-btn.disabled,
+.custom-search-btn:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border-color: #ced4da;
+  cursor: not-allowed;
+}
+
+@media (max-width: 576px) {
+  .custom-search-btn {
+    width: 35px;    /* slightly smaller */
+    height: 35px;
+    font-size: 16px;
+  }
+  #btnSearch {
+    padding: 0.5rem 1.5rem;  /* smaller padding for small screens */
+    font-size: 0.9rem;        /* slightly smaller font size */
+  }
+}
+
+/* Custom Input Styling */
+.custom-search-input {
+  border-radius: 50px;
+  padding: 10px 20px;
+  border: 1px solid #ced4da;
+  box-shadow: none;
+  font-size: 16px;
+}
+
+.fraction {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 2px;
+}
+.fraction .numerator {
+  display: block;
+  border-bottom: 1px solid #000;
+  padding: 0 2px;
+  line-height: 1.2;
+}
+.fraction .denom {
+  display: block;
+  padding: 0 2px;
+  line-height: 1.2;
+}
+
+.suggestion-btn {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-search-card {
+  transition: box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 95%;  /* Use most of the viewport width */
+    margin: 0.5rem auto;  /* Add some vertical margin */
+  }
+}
+
+// Formulas Page
+
+.formulas-section {
+  padding: 20px;
+}
+.formulas-section h3 {
+  margin-bottom: 1rem;
+}
+/* Unified category button group */
+.custom-category-group {
+  display: inline-flex;
+  border: 1px solid #343a40;
+  border-radius: 4px;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+}
+.custom-category-group .category-part {
+  padding: 0.5rem 1rem;
+  background-color: #343a40;
+  color: #fff;
+  transition: background-color 0.2s;
+}
+.custom-category-group .category-part.active {
+  background-color: #0d6efd; /* blue active state */
+  color: #fff;
+}
+/* Tooltip styling */
+#tooltip-text {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+/* Subtopic button styling */
+.subtopic-btn {
+  font-size: 0.875rem;
+  margin: 0.5rem;
+  border-radius: 0.25rem;
+}
+/* Formulas content area spacing */
+#formulas-content {
+  margin-top: 2rem;
+}
+
+// Home
+
+.sh-home-section {
+  padding: 20px;
+  background-color: var(--bs-danger);
+}
+.sh-home-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.sh-search-container-fluid {
+  width: 50%;
+  margin: 0 auto;
+}
+.sh-search-container-fluid .input-group {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 767.98px) {
+  .sh-search-container-fluid {
+    width: 100%;
+  }
+}
+
+hr.sh-hr {
+  border-top: 1px solid #fff;
+  margin: 1.5rem auto;
+  width: 75%;
+}
+.sh-top-searches-title,
+.sh-most-viewed-title,
+.sh-videos-title,
+.sh-quizzes-title {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+.sh-top-searches {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.sh-top-searches .btn {
+  margin: 0.25rem;
+}
+/* Topic Cards */
+.sh-topic-cards {
+  margin-bottom: 1rem;
+}
+.sh-topic-card {
+  width: 100%;
+  margin: 0 auto;
+}
+.sh-topic-card .card-body {
+  padding: 0.75rem;
+}
+.sh-btn-circle {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Video Cards */
+.sh-video-card {
+  position: relative;
+  background: url('images/video-placeholder.jpg') center center no-repeat;
+  background-size: cover;
+  height: 200px;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.sh-video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Quiz Cards */
+.sh-quiz-card {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  /* Set a smaller fixed height and constrain width */
+  height: 150px;
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sh-quiz-full-bg {
+  background: url('images/quiz-placeholder.jpg') center center no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.sh-quiz-content {
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent overlay for readability */
+  padding: 0.5rem 1rem;
+  height: 100%;
+}
+.sh-quiz-content h5 {
+  margin-bottom: 0.5rem;
+}
+.sh-quiz-content p {
+  margin-bottom: 0;
+}
+.sh-quiz-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #343a40;
+  color: #fff;
+  border: none;
+  width: 100%;
+  height: 100%;
+  /* Remove rounding on left edges */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: background-color 0.2s;
+}
+.sh-quiz-action-btn:hover {
+  background-color: #495057;
+}
+/* Unified Category Control for Formulas Section */
+.sh-cat-group {
+  display: inline-flex;
+  border: 1px solid #343a40;
+  border-radius: 4px;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+}
+.sh-cat-group .sh-cat-part {
+  padding: 0.5rem 1rem;
+  background-color: #343a40;
+  color: #fff;
+  transition: background-color 0.2s;
+}
+.sh-cat-group .sh-cat-part.active {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/********* Practice Quizzes **************/
+
+// Variables for easy customization
+$pq-primary-color: #007bff;
+$pq-light-gray: #f7f7f7;
+$pq-border-color: #ddd;
+
+.pq-section {
+  padding: 2rem 0;
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $pq-primary-color;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.pq-card {
+  border: 1px solid $pq-border-color;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+
+  .pq-card-header {
+    background-color: $pq-light-gray;
+    border-bottom: 1px solid $pq-border-color;
+    padding: 0.75rem 1rem;
+
+    .row {
+      margin: 0;
+    }
+
+    .pq-tab {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 1.1rem;
+      padding: 0.75rem 0; // full height of the column
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      
+      &.pq-tab-active,
+      &:hover {
+        background-color: $pq-primary-color;
+        color: #fff;
+      }
+      
+      &:not(.pq-tab-active):not(:hover) {
+        background-color: transparent;
+        color: $pq-primary-color;
+      }
+    }
+  }
+
+  .pq-card-body {
+    padding: 1.5rem;
+
+    .pq-section-content {
+      margin-bottom: 1rem;
+
+      input.form-control,
+      textarea.form-control {
+        border-radius: 0.25rem;
+      }
+    }
+  }
+}
+
+.pq-quiz-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h4 {
+    margin-bottom: 0.5rem;
+    color: $pq-primary-color;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #555;
+  }
+}
+
+.pq-quiz-cards {
+  .sh-quiz-card {
+    transition: transform 0.3s;
+    // Remove card borders
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .sh-quiz-content {
+    p {
+      font-size: 0.85rem;  // reduce font size for quiz info text
+      margin-bottom: 0;    // keep text compact
+    }
+  }
+}
+
+.pq-pagination {
+  margin-top: 2rem;
+
+  .page-link {
+    color: var(--bs-dark);
+  }
+
+  .page-item.active .page-link {
+    background-color: var(--bs-dark);
+    border-color: var(--bs-dark);
+    color: #fff;
+  }
+}
+
+/* ------------------------------------------
+   Sidebar toggle button styles
+------------------------------------------- */
+.sidebar-toggle {
+  position: fixed;         /* make sure the toggle button is fixed on screen */
+  top: 70px;               /* adjust for your navbar height if needed */
+  left: 0.5rem;            /* small left offset */
+  z-index: 1100;           /* higher than the sidebar so the button stays on top */
+  background-color: #222;  /* style as you like */
+  color: #fff;
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Hide the button on large screens (≥992px) */
+@media (min-width: 992px) {
+  .sidebar-toggle {
+    display: none !important;
+  }
+}
+
+/* ------------------------------------------
+   Sidebar 
+------------------------------------------- */
+
+.study-container {
+  display: flex; // side by side by default
+}
+
+/* Sidebar base styling (large screens) */
+.study-sidebar {
+  width: 240px;
+  background-color: #f8f9fa;
+  transition: transform 0.3s ease; // smooth show/hide
+}
+
+/* Main content on large screens fills the rest */
+.study-main-content {
+  flex: 1;
+  background: var(--bs-danger);
+}
+
+/* 
+  On small/medium screens (<992px by Bootstrap’s standard):
+  - Switch container to block so the main content is full width
+  - Take the sidebar out of the flow (position: fixed)
+  - Move it offscreen with transform so it doesn't take up space
+*/
+@media (max-width: 992px) {
+  .study-container {
+    display: block;
+  }
+
+  .study-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    z-index: 1099;
+    transform: translateX(-100%);
+  }
+
+  .study-sidebar.show {
+    transform: translateX(0);
+  }
+
+  .study-main-content {
+    width: calc(100% - 2rem);
+    margin: 0 auto;        
+    min-height: 100vh;
+  }
+}
+
+/* Toggle button styling (only visible on small/medium) */
+.sidebar-toggle {
+  position: fixed;
+  top: 70px; /* adjust if needed */
+  left: 1rem;
+  z-index: 1100;
+  background-color: #343a40;
+  color: #fff;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: left 0.3s ease; /* ensures smooth movement */
+}
+
+@media (min-width: 992px) {
+  .sidebar-toggle {
+    display: none !important; /* hide on large screens */
+  }
+}
