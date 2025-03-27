@@ -886,3 +886,7 @@ toggleBtn.addEventListener("click", () => {
     toggleBtn.style.left = "1rem";
   }
 });
+
+/* ------------------------------------------
+   User Profile Page
+--------------------------------------------*/

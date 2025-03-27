@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <title>User Profile</title>
+</head>
+<body class="profile-page">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #2c3e50;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">CERelearn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="study.html">Study Materials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forum.html">Community Forum</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Premium</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://randomuser.me/api/portraits/men/99.jpg" alt="User Profile"
+                                class="rounded-circle me-2" width="32" height="32">
+                            <span id="userName">John Doe</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-dark" href="auth.html">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <div class="container up-profile up-custom-bg">
+        <!-- ROW 1: Profile Overview & Sidebar -->
+        <div class="row up-row-1">
+          <!-- Column 1: Profile overview and study progress -->
+          <div class="col-md-7">
+            <!-- Profile Overview -->
+            <div class="row up-profile-overview mb-4">
+              <!-- Left: Profile picture (col-md-5) -->
+              <div class="col-md-5 d-flex align-items-center justify-content-center">
+                <img src="https://picsum.photos/200/200?random=1" alt="User Profile" class="img-fluid rounded-circle up-profile-photo">
+              </div>
+              <!-- Right: User details (col-md-7) -->
+              <div class="col-md-7">
+                <div class="up-user-name fs-3 fw-bold">John Doe</div>
+                <div class="up-user-info text-muted">johndoe@example.com | Example University</div>
+                <!-- Custom User Bio -->
+                <div class="up-user-bio mt-2">
+                  <p>Hello! I’m John, a passionate developer and lifelong learner. I love exploring new technologies and sharing my knowledge with others.</p>
+                </div>
+                <!-- Social Media Links -->
+                <div class="up-social-links">
+                  <a href="#" class="up-social-link me-2"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="up-social-link me-2"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="up-social-link me-2"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" class="up-social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="up-forum-card card mt-3 p-2">
+                  <div class="row text-center">
+                    <div class="col up-forum-item">
+                      <i class="fas fa-eye up-forum-icon"></i>
+                      <div class="count">1200</div>
+                      <div class="label">Views</div>
+                    </div>
+                    <div class="col up-forum-item">
+                      <i class="fas fa-pencil-alt up-forum-icon"></i>
+                      <div class="count">300</div>
+                      <div class="label">Posts</div>
+                    </div>
+                    <div class="col up-forum-item">
+                      <i class="fas fa-reply up-forum-icon"></i>
+                      <div class="count">450</div>
+                      <div class="label">Replies</div>
+                    </div>
+                    <div class="col up-forum-item">
+                      <i class="fas fa-thumbs-up up-forum-icon"></i>
+                      <div class="count">150</div>
+                      <div class="label">Votes</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Study Progress Cards -->
+            <div class="row up-study-progress">
+              <div class="col-md-4 mb-3">
+                <div class="up-progress-card card p-3 text-center">
+                  <div class="icon mb-2"><i class="fas fa-clock"></i></div>
+                  <div class="label">Total Study Time</div>
+                  <div class="value">15 hrs</div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="up-progress-card card p-3 text-center">
+                  <div class="icon mb-2"><i class="fas fa-check-circle"></i></div>
+                  <div class="label">Avg Quiz Accuracy</div>
+                  <div class="value">85%</div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="up-progress-card card p-3 text-center">
+                  <div class="icon mb-2"><i class="fas fa-pencil-alt"></i></div>
+                  <div class="label">Total Quizzes Taken</div>
+                  <div class="value">25</div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="up-progress-card card p-3 text-center">
+                  <div class="icon mb-2"><i class="fas fa-chart-line"></i></div>
+                  <div class="label">Coverage (%)</div>
+                  <div class="value">90%</div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="up-progress-card card p-3 text-center">
+                  <div class="icon mb-2"><i class="fas fa-book"></i></div>
+                  <div class="label">Completed Topics</div>
+                  <div class="value">8</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Column 2: Library & Study Buddies -->
+          <div class="col-md-5">
+            <!-- Library Section -->
+            <div class="up-library card p-3 mb-4">
+              <div class="card-header">My Library</div>
+              <ul class="list-group list-group-flush up-library-list">
+                <li class="list-group-item d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#up-library-topics" 
+                    aria-expanded="false" 
+                    aria-controls="up-library-topics">
+                  Topics
+                  <span class="up-toggle-arrow"><i class="fas fa-chevron-down"></i></span>
+                </li>
+                <div class="collapse" id="up-library-topics">
+                  <div class="card card-body">
+                    Saved Topics Content
+                  </div>
+                </div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#up-library-formulas" 
+                    aria-expanded="false" 
+                    aria-controls="up-library-formulas">
+                  Formulas
+                  <span class="up-toggle-arrow"><i class="fas fa-chevron-down"></i></span>
+                </li>
+                <div class="collapse" id="up-library-formulas">
+                  <div class="card card-body">
+                    Saved Formulas Content
+                  </div>
+                </div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#up-library-example-problems" 
+                    aria-expanded="false" 
+                    aria-controls="up-library-example-problems">
+                  Example Problems
+                  <span class="up-toggle-arrow"><i class="fas fa-chevron-down"></i></span>
+                </li>
+                <div class="collapse" id="up-library-example-problems">
+                  <div class="card card-body">
+                    Saved Example Problems Content
+                  </div>
+                </div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#up-library-video-lessons" 
+                    aria-expanded="false" 
+                    aria-controls="up-library-video-lessons">
+                  Video Lessons
+                  <span class="up-toggle-arrow"><i class="fas fa-chevron-down"></i></span>
+                </li>
+                <div class="collapse" id="up-library-video-lessons">
+                  <div class="card card-body">
+                    Saved Video Lessons Content
+                  </div>
+                </div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#up-library-practice-quizzes" 
+                    aria-expanded="false" 
+                    aria-controls="up-library-practice-quizzes">
+                  Practice Quizzes
+                  <span class="up-toggle-arrow"><i class="fas fa-chevron-down"></i></span>
+                </li>
+                <div class="collapse" id="up-library-practice-quizzes">
+                  <div class="card card-body">
+                    Saved Practice Quizzes Content
+                  </div>
+                </div>
+              </ul>
+            </div>
+            <!-- Study Buddies Section -->
+            <div class="up-study-buddies card p-3">
+              <ul class="list-group list-group-flush up-buddies-list mb-3">
+                <li class="list-group-item d-flex align-items-center">
+                  <img src="https://picsum.photos/seed/buddy1/40/40" alt="Buddy 1" class="rounded-circle up-buddy-photo me-3">
+                  <div class="up-buddy-info flex-grow-1">
+                    <div class="up-buddy-name fw-bold">Alice</div>
+                    <div class="up-buddy-school text-muted small">Example High School</div>
+                  </div>
+                  <button class="btn btn-dark btn-sm up-view-profile">View Profile</button>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                  <img src="https://picsum.photos/seed/buddy2/40/40" alt="Buddy 2" class="rounded-circle up-buddy-photo me-3">
+                  <div class="up-buddy-info flex-grow-1">
+                    <div class="up-buddy-name fw-bold">Bob</div>
+                    <div class="up-buddy-school text-muted small">Example High School</div>
+                  </div>
+                  <button class="btn btn-dark btn-sm up-view-profile">View Profile</button>
+                </li>
+              </ul>
+              <div class="d-flex gap-2 justify-content-center">
+                <button class="btn btn-danger up-find btn-sm">Find Study Buddies</button>
+                <button class="btn btn-dark up-invite btn-sm">Invite Classmates</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ROW 2: Analytics Cards -->
+        <div class="row up-row-2 my-4">
+          <div class="col-md-6 mb-3">
+            <div class="up-analytics-card card p-3">
+              <div class="card-heading fs-4 fw-bold mb-2">User Stats & Analytics</div>
+              <p>Chart or analytics data placeholder.</p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="up-analytics-card card p-3">
+              <div class="card-heading fs-4 fw-bold mb-2">Additional Analytics</div>
+              <p>Chart or analytics data placeholder.</p>
+            </div>
+          </div>
+        </div>
+        <!-- ROW 3: Contributions -->
+        <div class="row up-row-3 my-4">
+          <div class="col-md-6 mb-3">
+            <div class="up-contribution-card card p-3">
+              <div class="card-heading fs-4 fw-bold mb-2">Most Viewed Contributions</div>
+              <p>Contribution details placeholder.</p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="up-contribution-card card p-3">
+              <div class="card-heading fs-4 fw-bold mb-2">Most Helpful Contributions</div>
+              <p>Contribution details placeholder.</p>
+            </div>
+          </div>
+        </div>
+        <!-- ROW 4: Comments Section -->
+        <div class="row up-row-4 my-4">
+          <div class="col">
+            <div class="up-comments-section card p-3">
+              <div class="card-header up-comments-header">Comments</div>
+              <!-- Comment Form -->
+              <div class="card-body">
+                <form class="up-comment-form">
+                  <div class="mb-3">
+                    <textarea class="form-control" placeholder="Write a comment..." rows="3"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-dark btn-sm">Submit</button>
+                </form>
+              </div>
+              <!-- Existing Comments -->
+              <ul class="list-group list-group-flush up-comments-list">
+                <li class="list-group-item">
+                  <strong>Alice:</strong> Great profile! Love your bio.
+                </li>
+                <li class="list-group-item">
+                  <strong>Bob:</strong> Nice to see your social links. Keep it up!
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

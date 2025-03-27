@@ -14736,3 +14736,140 @@ hr.sh-hr {
     display: none !important; /* hide on large screens */
   }
 }
+/* ------------------------------------------
+   User Profile Page
+--------------------------------------------*/
+.up-profile {
+  padding: 20px;
+  background: #f8f9fa;
+}
+.up-profile.up-custom-bg {
+  background-color: #f0f8ff;
+}
+.up-profile .up-profile-overview .up-profile-photo {
+  border: 3px solid #ddd;
+}
+.up-profile .up-user-bio {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+.up-profile .up-user-bio p {
+  margin: 0;
+}
+.up-profile .up-social-links {
+  margin-top: 0.5rem;
+}
+.up-profile .up-social-links a.up-social-link {
+  font-size: 1.2rem;
+  color: #007bff;
+  transition: color 0.3s;
+}
+.up-profile .up-social-links a.up-social-link:hover {
+  color: #0056b3;
+}
+.up-profile .up-forum-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.up-profile .up-forum-card .up-forum-item {
+  text-align: center;
+}
+.up-profile .up-forum-card .up-forum-item i.up-forum-icon {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 5px;
+  display: block;
+}
+.up-profile .up-forum-card .up-forum-item .count {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.up-profile .up-forum-card .up-forum-item .label {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+.up-profile .up-study-progress .up-progress-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.up-profile .up-study-progress .up-progress-card .icon {
+  font-size: 2rem;
+  color: #007bff;
+}
+.up-profile .up-study-progress .up-progress-card .label {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+.up-profile .up-study-progress .up-progress-card .value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.up-profile .up-library {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.up-profile .up-library .up-library-list li {
+  cursor: pointer;
+  transition: background 0.3s ease, border-radius 0.3s ease;
+}
+.up-profile .up-library .up-library-list li:hover {
+  background: #add0f8;
+  border-radius: 0.5rem;
+}
+.up-profile .up-library .up-library-list li .up-toggle-arrow {
+  font-size: 1rem;
+  display: inline-block;
+  width: 1.2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.up-profile .up-library .up-library-list li[aria-expanded=true] .up-toggle-arrow {
+  transform: rotate(180deg);
+}
+.up-profile .up-library .collapse .card-body {
+  font-size: 0.85rem;
+  padding: 5px 10px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.up-profile .up-library .collapse .card-body:hover {
+  background: #e0e0e0;
+  border-radius: 0.25rem;
+}
+.up-profile .up-study-buddies {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.up-profile .up-study-buddies .up-buddies-list li .up-buddy-photo {
+  object-fit: cover;
+}
+.up-profile .up-study-buddies .up-buddies-list li .up-view-profile {
+  font-size: 0.8rem;
+}
+.up-profile .up-analytics-card,
+.up-profile .up-contribution-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.up-profile .up-analytics-card .card-heading,
+.up-profile .up-contribution-card .card-heading {
+  border-bottom: 1px solid #3f85cc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+.up-profile .up-comments-section {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #fff;
+}
+.up-profile .up-comments-section .up-comments-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.up-profile .up-comments-section .up-comment-form textarea {
+  resize: none;
+}
+.up-profile .up-comments-section .up-comments-list li {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}

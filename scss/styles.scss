@@ -1721,3 +1721,175 @@ $pq-border-color: #ddd;
     display: none !important; /* hide on large screens */
   }
 }
+
+/* ------------------------------------------
+   User Profile Page
+--------------------------------------------*/
+
+.up-profile {
+  padding: 20px;
+  background: #f8f9fa;
+
+  &.up-custom-bg {
+    background-color: #f0f8ff; 
+  }
+
+  .up-profile-overview {
+    .up-profile-photo {
+      border: 3px solid #ddd;
+    }
+  }
+
+  .up-user-bio {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    p {
+      margin: 0;
+    }
+  }
+
+  .up-social-links {
+    margin-top: 0.5rem;
+    a.up-social-link {
+      font-size: 1.2rem;
+      color: #007bff;
+      transition: color 0.3s;
+      &:hover {
+        color: #0056b3;
+      }
+    }
+  }
+
+  .up-forum-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .up-forum-item {
+      text-align: center;
+      i.up-forum-icon {
+        font-size: 1.5rem;
+        color: #007bff;
+        margin-bottom: 5px;
+        display: block;
+      }
+      .count {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-top: 5px;
+      }
+      .label {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+    }
+  }
+
+  .up-study-progress {
+    .up-progress-card {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      .icon {
+        font-size: 2rem;
+        color: #007bff;
+      }
+      .label {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+      .value {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .up-library {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .up-library-list {
+      li {
+        cursor: pointer;
+        transition: background 0.3s ease, border-radius 0.3s ease;
+        &:hover {
+          background: #add0f8;
+          border-radius: 0.5rem;
+        }
+        .up-toggle-arrow {
+          font-size: 1rem;
+          display: inline-block;
+          width: 1.2rem;
+          text-align: center;
+          // Transition for the chevron rotation
+          transition: transform 0.3s ease;
+        }
+      }
+    }
+    // When the list item is expanded, rotate the chevron 180 degrees.
+    .up-library-list li[aria-expanded="true"] .up-toggle-arrow {
+      transform: rotate(180deg);
+    }
+
+    .collapse {
+      .card-body {
+        font-size: 0.85rem; 
+        padding: 5px 10px;  
+        line-height: 1.2;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+          background: #e0e0e0;
+          border-radius: 0.25rem;
+        }
+      }
+    }
+  }
+
+  .up-study-buddies {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .up-buddies-list {
+      li {
+        .up-buddy-photo {
+          object-fit: cover;
+        }
+        .up-view-profile {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .up-analytics-card,
+  .up-contribution-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .card-heading {
+      border-bottom: 1px solid #3f85cc;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .up-comments-section {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: #fff;
+
+    .up-comments-header {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .up-comment-form textarea {
+      resize: none;
+    }
+
+    .up-comments-list {
+      li {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}
