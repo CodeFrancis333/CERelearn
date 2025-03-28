@@ -1726,47 +1726,91 @@ $pq-border-color: #ddd;
    User Profile Page
 --------------------------------------------*/
 
+// profile.scss
+// Custom SCSS with "up-" prefix to complement Bootstrap 5 styling,
+// including support for profile picture upload, bio editing, and saved content actions.
+
 .up-profile {
   padding: 20px;
   background: #f8f9fa;
 
+  // Custom background color class
   &.up-custom-bg {
     background-color: #f0f8ff; 
   }
 
+  // PROFILE OVERVIEW SECTION
   .up-profile-overview {
-    .up-profile-photo {
-      border: 3px solid #ddd;
+    .up-profile-photo-container {
+      position: relative;
+      display: inline-block;
+      .up-profile-photo {
+        border: 3px solid #ddd;
+        display: block;
+      }
+      .up-upload-btn {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 0.3rem;
+        border-radius: 50%;
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+        cursor: pointer;
+      }
+      &:hover .up-upload-btn {
+        opacity: 1;
+      }
     }
-  }
-
-  .up-user-bio {
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    p {
-      margin: 0;
+    .up-user-info {
+      margin-bottom: 0.5rem;
     }
-  }
-
-  .up-social-links {
-    margin-top: 0.5rem;
-    a.up-social-link {
-      font-size: 1.2rem;
-      color: #007bff;
-      transition: color 0.3s;
-      &:hover {
-        color: #0056b3;
+    .up-user-bio {
+      position: relative;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      p {
+        margin: 0;
+      }
+      .up-edit-bio-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: transparent;
+        border: none;
+        color: #007bff;
+        font-size: 1rem;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      &:hover .up-edit-bio-btn {
+        opacity: 1;
+      }
+    }
+    .up-social-links {
+      margin-top: 0.5rem;
+      a.up-social-link {
+        font-size: 1.2rem;
+        color: #007bff;
+        transition: color 0.3s;
+        &:hover {
+          color: #0056b3;
+        }
       }
     }
   }
 
+  // FORUM CARD SECTION
   .up-forum-card {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 0.25rem;
     padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
     .up-forum-item {
       text-align: center;
       i.up-forum-icon {
@@ -1787,6 +1831,7 @@ $pq-border-color: #ddd;
     }
   }
 
+  // STUDY PROGRESS SECTION
   .up-study-progress {
     .up-progress-card {
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -1805,9 +1850,9 @@ $pq-border-color: #ddd;
     }
   }
 
+  // LIBRARY SECTION
   .up-library {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
     .up-library-list {
       li {
         cursor: pointer;
@@ -1821,20 +1866,18 @@ $pq-border-color: #ddd;
           display: inline-block;
           width: 1.2rem;
           text-align: center;
-          // Transition for the chevron rotation
           transition: transform 0.3s ease;
         }
       }
     }
-    // When the list item is expanded, rotate the chevron 180 degrees.
+    // Chevron rotation via CSS based on aria-expanded attribute
     .up-library-list li[aria-expanded="true"] .up-toggle-arrow {
       transform: rotate(180deg);
     }
-
     .collapse {
       .card-body {
-        font-size: 0.85rem; 
-        padding: 5px 10px;  
+        font-size: 0.85rem;
+        padding: 5px 10px;
         line-height: 1.2;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -1842,13 +1885,43 @@ $pq-border-color: #ddd;
           background: #e0e0e0;
           border-radius: 0.25rem;
         }
+        // Saved content actions (view and delete)
+        .up-saved-actions {
+          margin-top: 0.5rem;
+          display: flex;
+          justify-content: flex-end;
+          gap: 0.5rem;
+          .up-view-btn,
+          .up-delete-btn {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.6rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+          }
+          .up-view-btn {
+            background-color: #28a745;
+            color: #fff;
+            &:hover {
+              background-color: #218838;
+            }
+          }
+          .up-delete-btn {
+            background-color: #dc3545;
+            color: #fff;
+            &:hover {
+              background-color: #c82333;
+            }
+          }
+        }
       }
     }
   }
 
+  // STUDY BUDDIES SECTION
   .up-study-buddies {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
     .up-buddies-list {
       li {
         .up-buddy-photo {
@@ -1861,10 +1934,10 @@ $pq-border-color: #ddd;
     }
   }
 
+  // ANALYTICS & CONTRIBUTIONS SECTION
   .up-analytics-card,
   .up-contribution-card {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
     .card-heading {
       border-bottom: 1px solid #3f85cc;
       padding-bottom: 5px;
@@ -1872,19 +1945,17 @@ $pq-border-color: #ddd;
     }
   }
 
+  // COMMENTS SECTION
   .up-comments-section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     background: #fff;
-
     .up-comments-header {
       font-size: 1.2rem;
       font-weight: bold;
     }
-
     .up-comment-form textarea {
       resize: none;
     }
-
     .up-comments-list {
       li {
         font-size: 0.9rem;

@@ -14746,25 +14746,65 @@ hr.sh-hr {
 .up-profile.up-custom-bg {
   background-color: #f0f8ff;
 }
-.up-profile .up-profile-overview .up-profile-photo {
-  border: 3px solid #ddd;
+.up-profile .up-profile-overview .up-profile-photo-container {
+  position: relative;
+  display: inline-block;
 }
-.up-profile .up-user-bio {
+.up-profile .up-profile-overview .up-profile-photo-container .up-profile-photo {
+  border: 3px solid #ddd;
+  display: block;
+}
+.up-profile .up-profile-overview .up-profile-photo-container .up-upload-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.3rem;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+.up-profile .up-profile-overview .up-profile-photo-container:hover .up-upload-btn {
+  opacity: 1;
+}
+.up-profile .up-profile-overview .up-user-info {
+  margin-bottom: 0.5rem;
+}
+.up-profile .up-profile-overview .up-user-bio {
+  position: relative;
   font-size: 1rem;
   margin-top: 0.5rem;
 }
-.up-profile .up-user-bio p {
+.up-profile .up-profile-overview .up-user-bio p {
   margin: 0;
 }
-.up-profile .up-social-links {
+.up-profile .up-profile-overview .up-user-bio .up-edit-bio-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: #007bff;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.up-profile .up-profile-overview .up-user-bio:hover .up-edit-bio-btn {
+  opacity: 1;
+}
+.up-profile .up-profile-overview .up-social-links {
   margin-top: 0.5rem;
 }
-.up-profile .up-social-links a.up-social-link {
+.up-profile .up-profile-overview .up-social-links a.up-social-link {
   font-size: 1.2rem;
   color: #007bff;
   transition: color 0.3s;
 }
-.up-profile .up-social-links a.up-social-link:hover {
+.up-profile .up-profile-overview .up-social-links a.up-social-link:hover {
   color: #0056b3;
 }
 .up-profile .up-forum-card {
@@ -14838,6 +14878,35 @@ hr.sh-hr {
 .up-profile .up-library .collapse .card-body:hover {
   background: #e0e0e0;
   border-radius: 0.25rem;
+}
+.up-profile .up-library .collapse .card-body .up-saved-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.up-profile .up-library .collapse .card-body .up-saved-actions .up-view-btn,
+.up-profile .up-library .collapse .card-body .up-saved-actions .up-delete-btn {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.up-profile .up-library .collapse .card-body .up-saved-actions .up-view-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+.up-profile .up-library .collapse .card-body .up-saved-actions .up-view-btn:hover {
+  background-color: #218838;
+}
+.up-profile .up-library .collapse .card-body .up-saved-actions .up-delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+.up-profile .up-library .collapse .card-body .up-saved-actions .up-delete-btn:hover {
+  background-color: #c82333;
 }
 .up-profile .up-study-buddies {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
