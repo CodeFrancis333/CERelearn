@@ -1422,6 +1422,34 @@
         </main>
     </div>
 
+    <!-- Chatbot Container -->
+    <div id="chatbot-container">
+      <!-- Chatbot Icon -->
+      <div id="chatbot-icon" role="button" aria-label="Open chat">
+      <span aria-hidden="true">&#128172;</span>
+      </div>
+      
+      <!-- Chatbot Window -->
+      <div id="chatbot-window" aria-hidden="true">
+        <div id="chatbot-header">
+            <span>Chatbot</span>
+            <span id="chatbot-close" role="button" aria-label="Close chat">&times;</span>
+        </div>
+        <div id="chatbot-body">
+            <p>Hello! How can I help you today?</p>
+        </div>
+        <div id="chatbot-footer">
+            <input  
+            type="text"
+            id="chat-input"
+            placeholder="Type your message..."
+            aria-label="Type your message here"
+            />
+            <button id="send-btn">Send</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer bg-dark text-light py-5">
         <div class="container">

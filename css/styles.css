@@ -14942,3 +14942,111 @@ hr.sh-hr {
   font-size: 0.9rem;
   padding: 0.5rem 1rem;
 }
+
+/***** Chatbot ********/
+/* Chatbot Container */
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Chatbot Icon */
+#chatbot-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#chatbot-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Chat Window */
+#chatbot-window {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 300px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#chatbot-window.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* Chat Header */
+#chatbot-header {
+  background: #4e73df;
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+#chatbot-close {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Chat Body */
+#chatbot-body {
+  padding: 12px;
+  height: 200px;
+  overflow-y: auto;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Chat Footer */
+#chatbot-footer {
+  display: flex;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+}
+
+#chatbot-footer input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+#chatbot-footer button {
+  background: #4e73df;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin-left: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#chatbot-footer button:hover {
+  background: #3b5bb5;
+}
